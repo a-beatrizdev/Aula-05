@@ -16,6 +16,7 @@ class Mae:
     def falar(self):
         return "A mãe está falando"
     
+    
 # Criando a subclasse com herança
 #A classe filho herda de pai
 class Filho(Pai, Mae):
@@ -25,6 +26,9 @@ class Filho(Pai, Mae):
         #Criando uma instância temporária para extrair o valor da classe mae
         instancia_mae = Mae()
         self.cor_olhos = instancia_mae.cor_olhos # Forçando a herança da mãe
+    
+    def falar(self):
+        return "O filho está falando"
 
     #Metodo
     def mostrar_origem(self):
@@ -42,3 +46,4 @@ crianca.mostrar_origem()
 # Ordem de resolução de métodos MRO
 for classe in Filho.mro():
     print(classe) 
+
