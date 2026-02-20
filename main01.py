@@ -18,14 +18,27 @@ class Mae:
     
 # Criando a subclasse com herança
 #A classe filho herda de pai
-class Filho(Pai):
+class Filho(Pai, Mae):
     def __init__(self):
         super().__init__()
+
+        #Criando uma instância temporária para extrair o valor da classe mae
+        instancia_mae = Mae()
+        self.cor_olhos = instancia_mae.cor_olhos # Forçando a herança da mãe
 
     #Metodo
     def mostrar_origem(self):
         print(f"Sobrenome: {self.sobrenome} ")
         print(f"Cor dos olhos: {self.cor_olhos} ")
-        print(f"Sobrenome: {self.sobrenome} ")
+        print(f"Ação: {self.falar()} ")
               
-   
+#Teste do sistema
+crianca = Filho() # Criei um objeto
+
+#Como acessar os métodos do meu objeto crianca?
+crianca.mostrar_origem() 
+
+
+# Ordem de resolução de métodos MRO
+for classe in Filho.mro():
+    print(classe) 
